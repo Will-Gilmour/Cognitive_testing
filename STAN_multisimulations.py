@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import pystan
+# import pystan
 import pandas as pd
 import numpy as np
 import os
@@ -20,8 +20,8 @@ nSubjects = 134
 nTrials = 50
 nSimulations = 100
 
-os.chdir(scripts_path)
-sim_model = pystan.StanModel(file='BayesSMEP_model_simulation.stan')
+# os.chdir(scripts_path)
+# sim_model = pystan.StanModel(file='BayesSMEP_model_simulation.stan')
 
 os.chdir(data_path_load)
 walks = pd.read_csv('walks.csv')
