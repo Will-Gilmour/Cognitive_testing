@@ -12,7 +12,12 @@ nSimulations = 100
 current_dir = os.path.dirname(__file__)  # This file can be moved around to different directories and still work!
 simulations_dir = os.path.join(current_dir, 'simulations')  # Will need to have the subdirectory where data gets saved!
 
+# If having issue with the STAN file use the second line rather than the first, also need to add num_subjects back in
+# Also will need to squeeze the output at the end!
 sim_model = pystan.StanModel(file='BayesSMEP_model_simulation_single.stan')
+# sim_model = pystan.StanModel(file='BayesSMEP_model_simulation.stan')
+
+
 print("Walks being loaded in")
 walks = pd.read_csv('walks.csv')
 print(walks.head())
