@@ -75,12 +75,12 @@ for subject_idx in range(nSubjects):
         choice_sim = simulated.extract()
 
         # Use these lines if using the 'single' version of STAN model
-        # choice = choice_sim['choice']
-        # reward_obt = choice_sim['reward_obt']
+        choice = choice_sim['choice']
+        reward_obt = choice_sim['reward_obt']
 
         # These lines are for the 'standard' version of the STAN model
-        choice = np.squeeze(choice_sim['choice'])
-        reward_obt = np.squeeze(choice_sim['reward_obt'])
+        # choice = np.squeeze(choice_sim['choice'])
+        # reward_obt = np.squeeze(choice_sim['reward_obt'])
 
         print(choice)
         print(reward_obt)
