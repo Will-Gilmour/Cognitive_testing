@@ -14,8 +14,8 @@ simulations_dir = os.path.join(current_dir, 'simulations')  # Will need to have 
 
 # If having issue with the STAN file use the second line rather than the first, also need to add num_subjects back in
 # Also will need to squeeze the output at the end!
-sim_model = pystan.StanModel(file='BayesSMEP_model_simulation_single.stan')
-# sim_model = pystan.StanModel(file='BayesSMEP_model_simulation.stan')
+# sim_model = pystan.StanModel(file='BayesSMEP_model_simulation_single.stan')
+sim_model = pystan.StanModel(file='BayesSMEP_model_simulation.stan')
 
 
 print("Walks being loaded in")
@@ -57,7 +57,7 @@ for subject_idx in range(nSubjects):
     per_curr = per[subject_idx]
 
     my_data = {
-        # 'nSubjects': 1,
+        'nSubjects': 1,
         'nTrials': nTrials,
         'reward': reward_curr,
         'beta': beta_curr,
@@ -75,12 +75,12 @@ for subject_idx in range(nSubjects):
         choice_sim = simulated.extract()
 
         # Use these lines if using the 'single' version of STAN model
-        choice = choice_sim['choice']
-        reward_obt = choice_sim['reward_obt']
+        # choice = choice_sim['choice']
+        # reward_obt = choice_sim['reward_obt']
 
         # These lines are for the 'standard' version of the STAN model
-        # choice = np.squeeze(choice_sim['choice'])
-        # reward_obt = np.squeeze(choice_sim['reward_obt'])
+        choice = np.squeeze(choice_sim['choice'])
+        reward_obt = np.squeeze(choice_sim['reward_obt'])
 
         # I can't run Pystan locally, so I these lines are just to get some data generated!
         # choice = np.random.randint(low=1, high=4, size=nTrials)
