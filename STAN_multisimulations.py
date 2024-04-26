@@ -82,6 +82,9 @@ for subject_idx in range(nSubjects):
         choice = np.squeeze(choice_sim['choice'])
         reward_obt = np.squeeze(choice_sim['reward_obt'])
 
+        print(choice)
+        print(reward_obt)
+
         # I can't run Pystan locally, so I these lines are just to get some data generated!
         # choice = np.random.randint(low=1, high=4, size=nTrials)
         # reward_obt = np.random.rand(nTrials)*100
